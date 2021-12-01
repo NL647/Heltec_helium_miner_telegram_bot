@@ -39,7 +39,8 @@ npm start
 /bluetooth
 ```
 
-![image](assets/image1.jpeg)
+
+<img src="relative/path/in/repository/to/image.svg" width="128"/>
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
