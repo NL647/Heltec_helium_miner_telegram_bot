@@ -36,7 +36,7 @@ bot.command("help", (ctx) => {
         <b> Send /menu to display the menu.</b>
         <b>↪️ Send /restart_device  to restart the miner.</b>
         <b>↪️ Send /restart_miner to restart miner process.</b>
-        <b>↪️ Send /bluetooth to start bluetooth pairing.`,
+        <b>↪️ Send /bluetooth to start bluetooth pairing.</b>`,
 
          {parse_mode: 'HTML'}
     );
