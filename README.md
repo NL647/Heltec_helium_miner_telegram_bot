@@ -13,6 +13,10 @@ A telegram bot for heltec helium miner to get information about miner.
 # Install'
 npm install 
 ```
+```bash
+#Rename example.env to .env and add your information'
+cp example.env .env 
+```
 
 
 ```bash
