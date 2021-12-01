@@ -1,0 +1,19 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "Telegram Bot for HELTEC Helium Miners",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NL647",
+  "license": "ISC",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "buffer": "^6.0.3",
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.6.6",
+    "telegraf": "^4.4.2"
+  }
+}
