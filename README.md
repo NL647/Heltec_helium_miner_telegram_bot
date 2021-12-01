@@ -41,6 +41,8 @@ npm start
 
 
 <img src="assets/image1.jpeg" width="250"/>
+<img src="assets/image2.jpeg" width="250"/>
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
