@@ -6,7 +6,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 let user = process.env.USERNAME
 let pass = process.env.PASSWORD
-//let url = 'http://192.168.1.57/apply.php'
+//let url = 'http://192.168.1.xx/apply.php'
 let url = process.env.BOT_URL
 
 
@@ -34,7 +34,7 @@ bot.command("help", (ctx) => {
 
         <b>ℹ️ Send /info  to get your miner info.</b>
         <b> Send /menu to display the menu.</b>
-        <b>↪️ Send  restart_device  to restart the miner.</b>
+        <b>↪️ Send /restart_device  to restart the miner.</b>
         <b>↪️ Send /restart_miner to restart miner process.</b>
         <b>↪️ Send /bluetooth to start bluetooth pairing.`,
 
