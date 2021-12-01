@@ -40,7 +40,7 @@ npm start
 ```
 
 
-<img src="relative/path/in/repository/to/image.svg" width="128"/>
+<img src="assets/image1.jpeg" width="250"/>
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
