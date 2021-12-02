@@ -166,6 +166,33 @@ bot.command("bluetooth", async(ctx) => {
 
 });
 
+bot.command("lora_logs", async(ctx) => {
+
+    (async() => {
+
+        const rawResponse = await fetch('http://192.168.1.57/apply.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic ' + Buffer.from(`${user}:${pass}`, 'binary').toString('base64')
+            },
+            body: JSON.stringify({ "apply":"loralog","cnt":"10","tr":"up"  })
+        });
+        const content = await rawResponse.text();
+        const result = content.replace(/<br\s*[\/]?>/gi, "\n===========================\n")
+        
+        bot.telegram.sendMessage(
+            ctx.chat.id,
+            result
+        );
+
+
+        })();
+
+
+});
+
 bot.launch();
 
 
