@@ -14,12 +14,9 @@ bot.command('menu', (ctx) =>
 
   ctx.reply('Menu Command', Markup
     .keyboard([
-        '/help',
-        '/info',
-         '/restart_device',
-          '/restart_miner',
-          '/bluetooth'
-          ])
+        ['/info', '/lora_logs'],
+        ['/bluetooth', '/restart', '/restart_miner']
+        ])
     .resize()
   )
 )
