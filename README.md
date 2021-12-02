@@ -27,11 +27,17 @@ npm start
 ## Commands on Telegram app
 
 ```bash
-# Get miner information'
+# Display the  menu'
 /menu
 
 # Get miner information'
 /info
+
+#Get 10 last Lora logs
+/lora_logs
+
+#Start bluetooth pairing
+/bluetooth
 
 # Restart the device'
 /restart_device
@@ -39,8 +45,8 @@ npm start
 # Restart the miner process
 /restart_miner
 
-#Start bluetooth pairing
-/bluetooth
+# Help
+/help
 ```
 
 
