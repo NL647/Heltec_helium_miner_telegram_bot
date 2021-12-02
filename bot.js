@@ -2,11 +2,9 @@ require('dotenv').config()
 const { Telegraf, Markup } = require('telegraf')
 const fetch = require("node-fetch")
 const bot = new Telegraf(process.env.BOT_TOKEN)
-
-
+const fs = require('fs');
 let user = process.env.USERNAME
 let pass = process.env.PASSWORD
-//let url = 'http://192.168.1.xx/apply.php'
 let url = process.env.BOT_URL
 
 
@@ -15,11 +13,13 @@ bot.command('menu', (ctx) =>
   ctx.reply('Menu Command', Markup
     .keyboard([
         ['/info', '/lora_logs'],
-        ['/bluetooth', '/restart_device', '/restart_miner']
+        ['/bluetooth', '/restart', '/restart_miner']
         ])
     .resize()
   )
 )
+
+
 
 
 bot.command("help", (ctx) => {
@@ -28,10 +28,9 @@ bot.command("help", (ctx) => {
         ctx.chat.id,
         
         `<b><u>Help</u></b> ❔:
-
         <b>ℹ️ Send /info  to get your miner info.</b>
-        <b>↪️Send /menu to display the menu.</b>
-        <b>↪️ Send /restart_device  to restart the miner.</b>
+        <b> Send /menu to display the menu.</b>
+        <b>↪️ Send  /restart_device  to restart the miner.</b>
         <b>↪️ Send /restart_miner to restart miner process.</b>
         <b>↪️ Send /bluetooth to start bluetooth pairing.</b>`,
 
@@ -39,10 +38,9 @@ bot.command("help", (ctx) => {
     );
 });
 
-bot.hears('/restart_miner', ctx => ctx.reply('Type /yes_rm to confirm Reboot the miner. /No to Cancel'))
-bot.hears('/restart_device', ctx => ctx.reply('Type /yes_rd to confirm Reboot the device.  /No to Cancel'))
+bot.command('info', async(ctx) => {
 
-bot.hears('/No', ctx => ctx.reply('/menu'))
+
     
 
     async function fetchMinerDataJSON() {
@@ -117,6 +115,18 @@ bot.command("yes_rd", async(ctx) => {
 
 });
 
+
+
+bot.hears('/restart_miner', ctx => ctx.reply('Type /yes_rm to confirm Reboot the miner. /No to Cancel'))
+bot.hears('/restart_device', ctx => ctx.reply('Type /yes_rd to confirm Reboot the device.  /No to Cancel'))
+
+bot.hears('/No', ctx => ctx.reply('/menu'))
+
+
+
+
+
+//bot.command("restart_miner", async(ctx) => {
 bot.command("yes_rm", async(ctx) => {
 
     (async() => {
@@ -137,10 +147,12 @@ bot.command("yes_rm", async(ctx) => {
 
     bot.telegram.sendMessage(
         ctx.chat.id,
-        "Restarting Miner Process...."
+        "Restarting The Miner...."
     );
 
 });
+
+
 
 bot.command("bluetooth", async(ctx) => {
 
@@ -181,6 +193,15 @@ bot.command("lora_logs", async(ctx) => {
             body: JSON.stringify({ "apply":"loralog","cnt":"10","tr":"up"  })
         });
         const content = await rawResponse.text();
+        const string = content
+
+        fs.writeFile("./test.txt", content, function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            console.log("The file was saved!");
+        });
+
         const result = content.replace(/<br\s*[\/]?>/gi, "\n===========================\n")
         
         bot.telegram.sendMessage(
@@ -195,6 +216,7 @@ bot.command("lora_logs", async(ctx) => {
 });
 
 bot.launch();
+
 
 
 
