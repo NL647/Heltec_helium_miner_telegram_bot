@@ -15,7 +15,7 @@ bot.command('menu', (ctx) =>
   ctx.reply('Menu Command', Markup
     .keyboard([
         ['/info', '/lora_logs'],
-        ['/bluetooth', '/restart', '/restart_miner']
+        ['/bluetooth', '/restart_device', '/restart_miner']
         ])
     .resize()
   )
@@ -39,9 +39,10 @@ bot.command("help", (ctx) => {
     );
 });
 
-bot.command('info', async(ctx) => {
+bot.hears('/restart_miner', ctx => ctx.reply('Type /yes_rm to confirm Reboot the miner. /No to Cancel'))
+bot.hears('/restart_device', ctx => ctx.reply('Type /yes_rd to confirm Reboot the device.  /No to Cancel'))
 
-
+bot.hears('/No', ctx => ctx.reply('/menu'))
     
 
     async function fetchMinerDataJSON() {
@@ -91,7 +92,7 @@ bot.command('info', async(ctx) => {
 
 //ℹ️ <b>Update_miner ?:</b> <code>${minerData.updating_miner}</code>
 
-bot.command("restart_device", async(ctx) => {
+bot.command("yes_rd", async(ctx) => {
 
     (async() => {
 
@@ -116,7 +117,7 @@ bot.command("restart_device", async(ctx) => {
 
 });
 
-bot.command("restart_miner", async(ctx) => {
+bot.command("yes_rm", async(ctx) => {
 
     (async() => {
 
