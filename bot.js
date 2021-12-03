@@ -94,7 +94,7 @@ bot.command("yes_rd", async(ctx) => {
 
     (async() => {
 
-        const rawResponse = await fetch('http://192.168.1.57/apply.php', {
+        const rawResponse = await fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -131,7 +131,7 @@ bot.command("yes_rm", async(ctx) => {
 
     (async() => {
 
-        const rawResponse = await fetch('http://192.168.1.57/apply.php', {
+        const rawResponse = await fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -158,7 +158,7 @@ bot.command("bluetooth", async(ctx) => {
 
     (async() => {
 
-        const rawResponse = await fetch('http://192.168.1.57/apply.php', {
+        const rawResponse = await fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -183,7 +183,7 @@ bot.command("lora_logs", async(ctx) => {
 
     (async() => {
 
-        const rawResponse = await fetch('http://192.168.1.57/apply.php', {
+        const rawResponse = await fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
