@@ -7,7 +7,7 @@ A telegram bot for heltec helium miner to get information about miner.
 
 - Node v14.18.1
 - Tested on ubuntu 18.04
-- You can run in background using screen or a crontab @reboot
+
 
 ```bash
 # Install'
